@@ -19,6 +19,10 @@ app.post("/", function (req, res) {
     https.get(url, function (response) {
         console.log(response.statusCode);
 
+        if (response.statusCode === 404) {
+            // City not found in OpenWeatherMap
+            return res.status(400).send('City not found. Please enter a valid city name');
+        }
         response.on("data", function (data) {
             const weatherData = JSON.parse(data);
             const temp = weatherData.main.temp;
