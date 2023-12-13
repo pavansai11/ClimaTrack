@@ -1,6 +1,4 @@
 # ClimaTrack
-
-## Overview
 This is a simple weather application that uses the OpenWeatherMap API to fetch and display the current weather data of a city.
 
 ## Features
