@@ -27,11 +27,16 @@ app.post("/", function (req, res) {
             const weatherData = JSON.parse(data);
             const temp = weatherData.main.temp;
             const weatherDescription = weatherData.weather[0].description;
-            const iconURl = "https://openweathermap.org/img/wn/" + weatherData.weather[0].icon + "@2x.png";
-            res.write("<h1>The temperature at " + query + " is " + temp + " degree celcius.</h1>");
-            res.write("<h3>\nThe weather is currently " + weatherDescription + "</h3>");
-            res.write("<img src=" + iconURl + ">");
-            res.send();
+            const iconURL = "https://openweathermap.org/img/wn/" + weatherData.weather[0].icon + "@2x.png";
+             // Construct the entire HTML response
+             const htmlResponse = `
+             <h1>The temperature at ${query} is ${temp} degree Celsius.</h1>
+             <h3>The weather is currently ${weatherDescription}</h3>
+             <img src=${iconURL} alt="Weather Icon">
+         `;
+
+         // Send the HTML response
+         res.send(htmlResponse);
         })
     });
 });
