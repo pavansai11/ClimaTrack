@@ -1,3 +1,7 @@
 node_modules/
 .DS_Store
+<<<<<<< HEAD
 .env
+=======
+config.js
+>>>>>>> e877f8f21413038881dac1509a0b22e597089642
